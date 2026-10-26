@@ -1,0 +1,14 @@
+services:
+  web:
+    image: janepauline/psusphere-docker:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - django_data:/app
+    environment:
+      DEBUG: "1"
+      DJANGO_ALLOWED_HOSTS: "localhost 127.0.0.1 [::1]"
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+
+volumes:
+  django_data:

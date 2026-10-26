@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    image: psusphere-docker:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      DEBUG: "1"
+      DJANGO_ALLOWED_HOSTS: "localhost 127.0.0.1 [::1]"
